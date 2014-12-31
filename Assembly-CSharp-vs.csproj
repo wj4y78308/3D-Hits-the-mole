@@ -46,11 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\MyGUIbox.cs" />
      <Compile Include="Assets\scripts\gameControl.cs" />
      <Compile Include="Assets\scripts\molesPop.cs" />
+     <Compile Include="Assets\scripts\myGUI.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/User/Documents/GitHub/3D-Hits-the-mole/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Administrator/Documents/GitHub/3D-Hits-the-mole/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>

@@ -20,4 +20,8 @@ public class gameControl : MonoBehaviour {
           //  transform.RotateAroundLocal(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0), -(Time.deltaTime * rotate_speed));
         }
 	}
+
+    void OnGUI() {
+
+    }
 }
