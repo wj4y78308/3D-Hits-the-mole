@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: 72ee3277221022e4781fa4f1b7ce6557
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - screenCamera: {fileID: 2000000, guid: 9c77a9e0ee0673449afbc3d0d512fc7f, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
