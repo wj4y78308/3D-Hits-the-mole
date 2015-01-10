@@ -6,7 +6,8 @@ public class molesPop : MonoBehaviour {
     public static bool    gameOver  = false;
     public GameObject player_element_selector;
 
-    public GameObject explosion;
+    public GameObject explosion_suc;
+    public GameObject explosion_fail;
     public GameObject Hammer;
     public int      popup_rate;
     private float   popUp_speed     = 0.2f;
@@ -74,12 +75,13 @@ public class molesPop : MonoBehaviour {
         if (!gameOver && !isHit) {
             if (attackType(player_element_selector.tag, gameObject.tag) == "suppressed") {
                 Instantiate(Hammer, transform.position, transform.rotation);
+                Instantiate(explosion_fail, transform.position, transform.rotation);
 
             }
             else if (attackType(player_element_selector.tag, gameObject.tag) == "effevtive") {
                 Instantiate(Hammer, transform.position, transform.rotation);
 
-                Instantiate(explosion, transform.position, transform.rotation);
+                Instantiate(explosion_suc, transform.position, transform.rotation);
                 transform.Translate(new Vector3(0, -(moveCounter - 1) * popUp_speed, 0));
                 myGUI.scores++;
 
@@ -89,6 +91,7 @@ public class molesPop : MonoBehaviour {
             }
             else {
                 Instantiate(Hammer, transform.position, transform.rotation);
+                Instantiate(explosion_fail, transform.position, transform.rotation);
             }
         }
     }

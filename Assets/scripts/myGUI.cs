@@ -77,7 +77,7 @@ public class myGUI : MonoBehaviour {
     void initGame() {
         molesPop.gameOver = false;
         scores = 0;
-        lifes = 3;
+        lifes = 5;
         scores = 0;
         Time.timeScale = 1;
         selected_element = 0;

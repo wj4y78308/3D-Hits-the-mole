@@ -8,9 +8,11 @@ public class gameControler : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        //transform.FindChild("default").rotation = transform.rotation;// new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z + 90);
+       transform.FindChild("default").Rotate(new Vector3(0, 0, 90));
         player_element_selector = GameObject.Find("player");
-        transform.Translate(0, 1.5f, 0);
-        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        //transform.Translate(3, 1.5f, 0);
+      //  transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
         switch (player_element_selector.tag) {
             case "gold":
