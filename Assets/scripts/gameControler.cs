@@ -2,11 +2,33 @@
 using System.Collections;
 
 public class gameControler : MonoBehaviour {
-    public float lifeTime;
+    public float lifeTime; 
+    public GameObject player_element_selector;
+
 
     // Use this for initialization
     void Start() {
+        player_element_selector = GameObject.Find("player");
         transform.Translate(0, 1.5f, 0);
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+        switch (player_element_selector.tag) {
+            case "gold":
+                transform.FindChild("default").renderer.material.color = Color.yellow;
+                break;
+            case "wood":
+                transform.FindChild("default").renderer.material.color = Color.green;
+                break;
+            case "water":
+                transform.FindChild("default").renderer.material.color = Color.blue;
+                break;
+            case "fire":
+                transform.FindChild("default").renderer.material.color = Color.red;
+                break;
+            case "dirt":
+                transform.FindChild("default").renderer.material.color = Color.gray;
+                break;
+        }
         //var mousePos = Input.mousePosition;
         ////mousePos.x -= Screen.width / 2;
         ////mousePos.y -= Screen.height / 2;

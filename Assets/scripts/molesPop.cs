@@ -4,6 +4,7 @@ using System.Collections;
 
 public class molesPop : MonoBehaviour {
     public static bool    gameOver  = false;
+    public GameObject player_element_selector;
 
     public GameObject explosion;
     public GameObject Hammer;
@@ -71,18 +72,24 @@ public class molesPop : MonoBehaviour {
 
     void OnMouseDown() {
         if (!gameOver && !isHit) {
-            Instantiate(Hammer, transform.position, transform.rotation);
+            if (attackType(player_element_selector.tag, gameObject.tag) == "suppressed") {
+                Instantiate(Hammer, transform.position, transform.rotation);
 
-            //renderer.material.color = Color.black;
-//            transform.Translate(new Vector3(0, (10 - moveCounter) * popUp_speed, 0));
-            Instantiate(explosion, transform.position, transform.rotation);
-            transform.Translate(new Vector3(0, -(moveCounter-1) * popUp_speed, 0)) ;
-            myGUI.scores++;
+            }
+            else if (attackType(player_element_selector.tag, gameObject.tag) == "effevtive") {
+                Instantiate(Hammer, transform.position, transform.rotation);
 
-            isHit = true;
-            moveCounter = 0;
-            moleState = "sleep";
-            //stayTimeCounter = onHitStayTime;
+                Instantiate(explosion, transform.position, transform.rotation);
+                transform.Translate(new Vector3(0, -(moveCounter - 1) * popUp_speed, 0));
+                myGUI.scores++;
+
+                isHit = true;
+                moveCounter = 0;
+                moleState = "sleep";
+            }
+            else {
+                Instantiate(Hammer, transform.position, transform.rotation);
+            }
         }
     }
 
@@ -108,5 +115,15 @@ public class molesPop : MonoBehaviour {
                 break;
         }
 
+    }
+
+    string attackType(string attacker, string defenser) {
+        if ((attacker == "gold" && defenser == "wood") || (attacker == "wood" && defenser == "dirt") || (attacker == "dirt" && defenser == "water")||
+            (attacker == "water" && defenser == "fire") || (attacker == "fire" && defenser == "gold"))
+            return "effevtive";
+        if ((defenser == "gold" && attacker == "wood") || (defenser == "wood" && attacker == "dirt") || (defenser == "dirt" && attacker == "water")||
+            (defenser == "water" && attacker == "fire") || (defenser == "fire" && attacker == "gold"))
+            return "suppressed";
+        return "none";
     }
 }

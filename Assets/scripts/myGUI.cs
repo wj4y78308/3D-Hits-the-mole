@@ -81,5 +81,6 @@ public class myGUI : MonoBehaviour {
         scores = 0;
         Time.timeScale = 1;
         selected_element = 0;
+        player_element_selector.tag = "gold";
     }
 }
