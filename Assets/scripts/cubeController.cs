@@ -6,6 +6,7 @@ public class cubeController : MonoBehaviour {
     int debug_i = 0;
     // Use this for initialization
     void Start() {
+            transform.rotation = Quaternion.identity ;
     }
 
     // Update is called once per frame

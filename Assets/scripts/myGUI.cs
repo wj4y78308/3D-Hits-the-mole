@@ -7,6 +7,7 @@ public class myGUI : MonoBehaviour {
     public Texture life_icon;
     public GameObject player_element_selector;
     public Texture[] elements_icon;
+    public Texture[] digits_icon;
     public static int lifes = 5;
     public static int scores = 0;
     private int selected_element;
@@ -56,8 +57,11 @@ public class myGUI : MonoBehaviour {
         GUILayout.EndHorizontal();
 
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Scores:"+scores.ToString(), guiStyle);
-        GUILayout.EndHorizontal();
+        GUILayout.Label("   " , guiStyle);
+        for (int i = 0; i < scores.ToString().Length; i++) {
+            GUI.DrawTexture(new Rect(100 - (scores.ToString().Length-i-1) * 20, 29, 20, 25), digits_icon[int.Parse(scores.ToString().Substring(i, 1))]);
+        }
+            GUILayout.EndHorizontal();
 
         GUILayout.EndArea();
 

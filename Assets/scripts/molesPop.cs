@@ -21,6 +21,8 @@ public class molesPop : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
         isHit = false;
 		moleState = "sleep";
 		stayTimeCounter = stayTime;
@@ -68,6 +70,10 @@ public class molesPop : MonoBehaviour {
                 }
             }
         }
+        else {
+            // all moles go back to init place
+            //transform.Translate(new Vector3(0, -(moveCounter - 1) * popUp_speed, 0));
+        }
 
 	}
 
@@ -76,7 +82,7 @@ public class molesPop : MonoBehaviour {
             if (attackType(player_element_selector.tag, gameObject.tag) == "suppressed") {
                 Instantiate(Hammer, transform.position, transform.rotation);
                 Instantiate(explosion_fail, transform.position, transform.rotation);
-
+                myGUI.lifes--;
             }
             else if (attackType(player_element_selector.tag, gameObject.tag) == "effevtive") {
                 Instantiate(Hammer, transform.position, transform.rotation);
