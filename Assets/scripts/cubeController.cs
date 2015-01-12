@@ -12,16 +12,29 @@ public class cubeController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        //ref:http://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
-        if (Input.GetMouseButton(0)) {
-            // ref:http://answers.unity3d.com/questions/581017/whats-the-function-to-replace-the-obsolete-rotatea.html
-            transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0), -(Time.deltaTime * rotate_speed) * Mathf.Rad2Deg, Space.World);
-            //  transform.RotateAroundLocal(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0), -(Time.deltaTime * rotate_speed));
-        }
+        ////ref:http://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
+        //if (Input.GetMouseButton(0)) {
+        //    // ref:http://answers.unity3d.com/questions/581017/whats-the-function-to-replace-the-obsolete-rotatea.html
+        //    transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0), -(Time.deltaTime * rotate_speed) * Mathf.Rad2Deg, Space.World);
+        //    //  transform.RotateAroundLocal(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0), -(Time.deltaTime * rotate_speed));
+        //}
     }
 
     void OnMouseDown() {
         print(debug_i.ToString()+"click on Cube!");
         debug_i++;
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            float x = Input.GetAxis("Mouse X") * rotate_speed * Time.deltaTime;
+            float y = Input.GetAxis("Mouse Y") * rotate_speed * Time.deltaTime;
+
+            rigidbody.AddTorque(Vector3.down * x, ForceMode.VelocityChange);
+            rigidbody.AddTorque(Vector3.left * y, ForceMode.VelocityChange);
+        }
+
     }
 }
