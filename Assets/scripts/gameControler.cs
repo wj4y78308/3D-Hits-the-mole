@@ -8,11 +8,10 @@ public class gameControler : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        //transform.FindChild("default").rotation = transform.rotation;// new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z + 90);
-       transform.FindChild("default").Rotate(new Vector3(0, 0, 90));
+
+        transform.FindChild("default").Rotate(new Vector3(0, 0, 90));
         player_element_selector = GameObject.Find("player");
-        //transform.Translate(3, 1.5f, 0);
-      //  transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
 
         switch (player_element_selector.tag) {
             case "gold":
@@ -31,10 +30,7 @@ public class gameControler : MonoBehaviour {
                 transform.FindChild("default").renderer.material.color = Color.gray;
                 break;
         }
-        //var mousePos = Input.mousePosition;
-        ////mousePos.x -= Screen.width / 2;
-        ////mousePos.y -= Screen.height / 2;
-        //transform.position = mousePos;
+
         Destroy(gameObject, lifeTime);
     }
 

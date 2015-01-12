@@ -22,7 +22,7 @@ public class myGUI : MonoBehaviour {
         if (myGUI.lifes <= 0) {
             Time.timeScale = 0;
             molesPop.gameOver = true;
-            
+
         }
         //if (Input.GetKeyDown(KeyCode.A)) {
         //    selected_element = 0;
@@ -45,28 +45,31 @@ public class myGUI : MonoBehaviour {
         //    player_element_selector.tag = "dirt";
         //}
 
+        //initGame();
         if (Input.GetKeyDown(KeyCode.R) && molesPop.gameOver)
             Application.LoadLevel(Application.loadedLevel);
-            //initGame();
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.LoadLevel(0);
+        }
 
-		if (Input.GetAxis ("Mouse ScrollWheel")>0) {
-			if(selected_element >0 ){
-				selected_element--;
-			}
-			else{
-				selected_element = 4;
-			}
-			player_element_selector.tag = tag[selected_element];
-		}
-		if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
-			if(selected_element <4 ){
-				selected_element++;
-			}
-			else{
-				selected_element = 0;
-			}
-			player_element_selector.tag = tag[selected_element];
-    }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0) {
+            if (selected_element > 0) {
+                selected_element--;
+            }
+            else {
+                selected_element = 4;
+            }
+            player_element_selector.tag = tag[selected_element];
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0) {
+            if (selected_element < 4) {
+                selected_element++;
+            }
+            else {
+                selected_element = 0;
+            }
+            player_element_selector.tag = tag[selected_element];
+        }
     }
 
     void OnGUI() {
@@ -88,14 +91,6 @@ public class myGUI : MonoBehaviour {
 
         GUILayout.EndArea();
 
-        //for (int i = 0; i < 5; i++) {
-        //    if (i < selected_element)
-        //        GUI.DrawTexture(new Rect(Screen.width - 60, 10 + i * 52, 50, 50), elements_icon[i]);
-        //    else if (i > selected_element)
-        //        GUI.DrawTexture(new Rect(Screen.width - 60, 10 + i * 52 + 10, 50, 50), elements_icon[i]);
-        //    else
-        //        GUI.DrawTexture(new Rect(Screen.width - 70, 10 + i * 52, 60, 60), elements_icon[i]);
-        //}
         for (int i = 0; i < 5; i++)
         {
             Rect r;
