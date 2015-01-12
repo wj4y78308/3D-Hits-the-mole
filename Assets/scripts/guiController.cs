@@ -16,7 +16,7 @@ public class guiController : MonoBehaviour {
 
 	public void startClicked()
 	{
-		Application.LoadLevel("Main.unity");
+		Application.LoadLevel("Main");
 	}
 
 	public void exitClicked()

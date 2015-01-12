@@ -11,9 +11,11 @@ public class myGUI : MonoBehaviour {
     public static int lifes = 5;
     public static int scores = 0;
     private int selected_element;
+    private string[] tag;
 
     void Start() {
         initGame();
+        tag = new string[] { "gold", "wood", "dirt", "water", "fire" };
     }
 
     void Update() {
@@ -21,29 +23,48 @@ public class myGUI : MonoBehaviour {
             Time.timeScale = 0;
             molesPop.gameOver = true;
         }
-        if (Input.GetKeyDown(KeyCode.A)) {
-            selected_element = 0;
-            player_element_selector.tag = "gold";
-        }
-        if (Input.GetKeyDown(KeyCode.S)) {
-            selected_element = 1;
-            player_element_selector.tag = "wood";
-        }
-        if (Input.GetKeyDown(KeyCode.D)) {
-            selected_element = 2;
-            player_element_selector.tag = "water";
-        }
-        if (Input.GetKeyDown(KeyCode.F)) {
-            selected_element = 3;
-            player_element_selector.tag = "fire";
-        }
-        if (Input.GetKeyDown(KeyCode.G)) {
-            selected_element = 4;
-            player_element_selector.tag = "dirt";
-        }
+        //if (Input.GetKeyDown(KeyCode.A)) {
+        //    selected_element = 0;
+        //    player_element_selector.tag = "gold";
+        //}
+        //if (Input.GetKeyDown(KeyCode.S)) {
+        //    selected_element = 1;
+        //    player_element_selector.tag = "wood";
+        //}
+        //if (Input.GetKeyDown(KeyCode.D)) {
+        //    selected_element = 2;
+        //    player_element_selector.tag = "water";
+        //}
+        //if (Input.GetKeyDown(KeyCode.F)) {
+        //    selected_element = 3;
+        //    player_element_selector.tag = "fire";
+        //}
+        //if (Input.GetKeyDown(KeyCode.G)) {
+        //    selected_element = 4;
+        //    player_element_selector.tag = "dirt";
+        //}
 
         if (Input.GetKeyDown(KeyCode.R) && molesPop.gameOver)
             initGame();
+
+		if (Input.GetAxis ("Mouse ScrollWheel")>0) {
+			if(selected_element >0 ){
+				selected_element--;
+			}
+			else{
+				selected_element = 4;
+			}
+			player_element_selector.tag = tag[selected_element];
+		}
+		if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
+			if(selected_element <4 ){
+				selected_element++;
+			}
+			else{
+				selected_element = 0;
+			}
+			player_element_selector.tag = tag[selected_element];
+    }
     }
 
     void OnGUI() {
@@ -65,13 +86,40 @@ public class myGUI : MonoBehaviour {
 
         GUILayout.EndArea();
 
-        for (int i = 0; i < 5; i++) {
+        //for (int i = 0; i < 5; i++) {
+        //    if (i < selected_element)
+        //        GUI.DrawTexture(new Rect(Screen.width - 60, 10 + i * 52, 50, 50), elements_icon[i]);
+        //    else if (i > selected_element)
+        //        GUI.DrawTexture(new Rect(Screen.width - 60, 10 + i * 52 + 10, 50, 50), elements_icon[i]);
+        //    else
+        //        GUI.DrawTexture(new Rect(Screen.width - 70, 10 + i * 52, 60, 60), elements_icon[i]);
+        //}
+        for (int i = 0; i < 5; i++)
+        {
+            Rect r;
             if (i < selected_element)
-                GUI.DrawTexture(new Rect(Screen.width - 60, 10 + i * 52, 50, 50), elements_icon[i]);
+            {
+                r = new Rect(Screen.width - 60, 10 + i * 52, 50, 50);
+                GUI.DrawTexture(r, elements_icon[i]);
+            }
             else if (i > selected_element)
-                GUI.DrawTexture(new Rect(Screen.width - 60, 10 + i * 52 + 10, 50, 50), elements_icon[i]);
+            {
+                r = new Rect(Screen.width - 60, 10 + i * 52 + 10, 50, 50);
+                GUI.DrawTexture(r, elements_icon[i]);
+            }
             else
-                GUI.DrawTexture(new Rect(Screen.width - 70, 10 + i * 52, 60, 60), elements_icon[i]);
+            {
+                r = new Rect(Screen.width - 70, 10 + i * 52, 60, 60);
+                GUI.DrawTexture(r, elements_icon[i]);
+            }
+            if (Input.GetMouseButton(0))
+            {
+                if (r.Contains(Event.current.mousePosition))
+                {
+                    selected_element = i;
+                    player_element_selector.tag = tag[selected_element];
+                }
+            }
         }
 
         if (molesPop.gameOver)
