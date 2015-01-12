@@ -22,6 +22,7 @@ public class myGUI : MonoBehaviour {
         if (myGUI.lifes <= 0) {
             Time.timeScale = 0;
             molesPop.gameOver = true;
+            
         }
         //if (Input.GetKeyDown(KeyCode.A)) {
         //    selected_element = 0;
@@ -45,7 +46,8 @@ public class myGUI : MonoBehaviour {
         //}
 
         if (Input.GetKeyDown(KeyCode.R) && molesPop.gameOver)
-            initGame();
+            Application.LoadLevel(Application.loadedLevel);
+            //initGame();
 
 		if (Input.GetAxis ("Mouse ScrollWheel")>0) {
 			if(selected_element >0 ){
