@@ -1777,9 +1777,9 @@ MonoBehaviour:
   elements_icon:
   - {fileID: 2800000, guid: 000f2806aa4ca2b4fbe60530150499b6, type: 3}
   - {fileID: 2800000, guid: 68da45a3182674c43a9aa06f806e8ea9, type: 3}
+  - {fileID: 2800000, guid: 9c076467d7d79e5448ce4b0b39dab7da, type: 3}
   - {fileID: 2800000, guid: ed770b3a6649f8846b0a5ec3f083754f, type: 3}
   - {fileID: 2800000, guid: 9eceeb99f4133f74c829c25b8ea6b952, type: 3}
-  - {fileID: 2800000, guid: 9c076467d7d79e5448ce4b0b39dab7da, type: 3}
   digits_icon:
   - {fileID: 2800000, guid: caa74e405e3691240af38990d2ec9894, type: 3}
   - {fileID: 2800000, guid: 42b6f9e776d3b5547b710af0135de724, type: 3}
@@ -11176,6 +11176,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
