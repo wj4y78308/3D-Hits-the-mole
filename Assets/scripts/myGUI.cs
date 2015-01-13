@@ -24,26 +24,26 @@ public class myGUI : MonoBehaviour {
             molesPop.gameOver = true;
 
         }
-        //if (Input.GetKeyDown(KeyCode.A)) {
-        //    selected_element = 0;
-        //    player_element_selector.tag = "gold";
-        //}
-        //if (Input.GetKeyDown(KeyCode.S)) {
-        //    selected_element = 1;
-        //    player_element_selector.tag = "wood";
-        //}
-        //if (Input.GetKeyDown(KeyCode.D)) {
-        //    selected_element = 2;
-        //    player_element_selector.tag = "water";
-        //}
-        //if (Input.GetKeyDown(KeyCode.F)) {
-        //    selected_element = 3;
-        //    player_element_selector.tag = "fire";
-        //}
-        //if (Input.GetKeyDown(KeyCode.G)) {
-        //    selected_element = 4;
-        //    player_element_selector.tag = "dirt";
-        //}
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            selected_element = 0;
+            player_element_selector.tag = "gold";
+        }
+        if (Input.GetKeyDown(KeyCode.W)) {
+            selected_element = 1;
+            player_element_selector.tag = "wood";
+        }
+        if (Input.GetKeyDown(KeyCode.E)) {
+            selected_element = 2;
+            player_element_selector.tag = "water";
+        }
+        if (Input.GetKeyDown(KeyCode.S)) {
+            selected_element = 3;
+            player_element_selector.tag = "fire";
+        }
+        if (Input.GetKeyDown(KeyCode.D)) {
+            selected_element = 4;
+            player_element_selector.tag = "dirt";
+        }
 
         //initGame();
         if (Input.GetKeyDown(KeyCode.R) && molesPop.gameOver)

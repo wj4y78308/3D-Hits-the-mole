@@ -41,7 +41,7 @@ public class molesPop : MonoBehaviour {
                 if (Random.Range(0, 10000) < popup_rate) {
                     isHit = false;
                     moleState = "pop";
-                    gameObject.tag = tags[Random.Range(0, 4)];
+                    gameObject.tag = tags[Random.Range(0, 5)];
                     setColor(gameObject.tag);
                     //renderer.material.color = Color.red;
                 }
@@ -56,6 +56,7 @@ public class molesPop : MonoBehaviour {
             else if (moleState == "stay") {
                 collider.enabled = true;
                 if (stayTimeCounter-- < 0) {
+					collider.enabled=false;
                     moleState = "sink";
                     stayTimeCounter = stayTime;
                 }
@@ -77,7 +78,7 @@ public class molesPop : MonoBehaviour {
 
 	}
 
-    void OnMouseDown() {
+    void OnMouseUp() {
         if (!gameOver && !isHit) {
             if (attackType(player_element_selector.tag, gameObject.tag) == "suppressed") {
                 Instantiate(Hammer, transform.position, transform.rotation);
