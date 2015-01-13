@@ -15,7 +15,7 @@ public class gameControler : MonoBehaviour {
 
         switch (player_element_selector.tag) {
             case "gold":
-                transform.FindChild("default").renderer.material.color = Color.yellow;
+                transform.FindChild("default").renderer.material.color = Color.white;
                 break;
             case "wood":
                 transform.FindChild("default").renderer.material.color = Color.green;
@@ -27,7 +27,7 @@ public class gameControler : MonoBehaviour {
                 transform.FindChild("default").renderer.material.color = Color.red;
                 break;
             case "dirt":
-                transform.FindChild("default").renderer.material.color = Color.gray;
+			transform.FindChild("default").renderer.material.color = Color.yellow;
                 break;
         }
 

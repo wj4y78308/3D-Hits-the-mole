@@ -26,23 +26,23 @@ public class myGUI : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             selected_element = 0;
-            player_element_selector.tag = "gold";
-        }
+			player_element_selector.tag = tag[selected_element];
+		}
         if (Input.GetKeyDown(KeyCode.W)) {
             selected_element = 1;
-            player_element_selector.tag = "wood";
-        }
+			player_element_selector.tag = tag[selected_element];
+		}
         if (Input.GetKeyDown(KeyCode.E)) {
             selected_element = 2;
-            player_element_selector.tag = "water";
-        }
+			player_element_selector.tag = tag[selected_element];
+		}
         if (Input.GetKeyDown(KeyCode.S)) {
             selected_element = 3;
-            player_element_selector.tag = "fire";
-        }
+			player_element_selector.tag = tag[selected_element];
+		}
         if (Input.GetKeyDown(KeyCode.D)) {
-            selected_element = 4;
-            player_element_selector.tag = "dirt";
+			selected_element = 4;  
+			player_element_selector.tag = tag[selected_element];
         }
 
         //initGame();

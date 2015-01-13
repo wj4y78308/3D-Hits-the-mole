@@ -115,13 +115,13 @@ public class molesPop : MonoBehaviour {
                 renderer.material.color = Color.green;
                 break;
             case "gold":
-                renderer.material.color = Color.yellow;
+                renderer.material.color = Color.white;
                 break;
             case "dirt":
-                renderer.material.color = Color.grey;
+			renderer.material.color = Color.yellow;
                 break;
             default:
-                print("Mole's Tag ERROR!!!!!!!!!!!!!!!!!!!!");
+                print(" Tag ERROR!!!!!!!!!!!!!!!!!!!!");
                 break;
         }
 
